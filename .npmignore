@@ -1,0 +1,7 @@
+node_modules/
+.nyc_output/
+coverage/
+perf.js
+test.js
+.gitignore
+.travis.yml
