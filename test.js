@@ -3,12 +3,12 @@ var expect = require('expect');
 
 describe('diff-text', function() {
   it('1. input null', function() {
-    // expect(DiffText(null, null)).toThrow('Text should not be null.');
-    // expect(DiffText(undefined, undefined)).toThrow('Text should not be null.');
-    // expect(DiffText(null, undefined)).toThrow('Text should not be null.');
-    // expect(DiffText(undefined, null)).toThrow('Text should not be null.');
-    // expect(DiffText(null, '12')).toThrow('Text should not be null.');
-    // expect(DiffText('12', undefined)).toThrow('Text should not be null.');
+    expect(DiffText.bind(null, null)).toThrow('Text should not be null.');
+    expect(DiffText.bind(undefined, undefined)).toThrow('Text should not be null.');
+    expect(DiffText.bind(null, undefined)).toThrow('Text should not be null.');
+    expect(DiffText.bind(undefined, null)).toThrow('Text should not be null.');
+    expect(DiffText.bind(null, '12')).toThrow('Text should not be null.');
+    expect(DiffText.bind('12', undefined)).toThrow('Text should not be null.');
   });
 
   it('2. input empty', function() {
@@ -25,6 +25,10 @@ describe('diff-text', function() {
   });
 
   it('4. input just one edit.', function() {
+    expect(DiffText('', 'diff-text')).toEqual([
+      [1, 'diff-text']
+    ]);
+
     expect(DiffText('difftext', 'diff-text')).toEqual([
       [0, 'diff'],
       [1, '-'],
