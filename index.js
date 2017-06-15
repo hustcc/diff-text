@@ -138,7 +138,7 @@ function diffText(originText, newText) {
   }
 
   // 1 when Equality
-  if (originText === newText === '') {
+  if (originText === '' && newText === '') {
     return [];
   }
 
